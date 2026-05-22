@@ -24,7 +24,7 @@ if st.button("Humanize It ✨"):
             
             # Call the model
             completion = client.chat.completions.create(
-                model="llama3-8b-8192", # Free, ultra-fast model
+                model="llama-3.1-8b-instant", # Free, ultra-fast model
                 messages=[
                     {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": user_input}
