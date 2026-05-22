@@ -1,74 +1,145 @@
 import streamlit as st
 from groq import Groq
 
-# 1. Custom Page Config & Injecting CSS Vibes
+# 1. Page Config
 st.set_page_config(
     page_title="The De-AI-ifier", 
-    page_icon="😎", 
+    page_icon="🧍", 
     layout="centered"
 )
 
-# Dark theme overrides and cool fonts (Fixed with unsafe_allow_html=True)
+# 2. Injecting the Sleek Glow UI inspired by image_41c106.jpg
 st.markdown("""
     <style>
-    .main {
-        background-color: #0d1117;
+    /* Premium dark gradient background */
+    .stApp {
+        background: radial-gradient(circle at 50% 10%, #101a30 0%, #070a13 70%) !important;
+        color: #f0f3f9 !important;
     }
+    
+    /* Sleek top pill banner */
+    .top-pill {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 6px 16px;
+        border-radius: 30px;
+        display: inline-block;
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 12px;
+        color: #38bdf8;
+        margin-bottom: 30px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Clean, sleek modern titles */
     h1 {
-        color: #ff4b4b !important;
-        font-family: 'Courier New', Courier, monospace;
-        font-weight: 800;
-    }
-    h3 {
-        color: #8b949e !important;
-        font-family: 'Courier New', Courier, monospace;
-    }
-    .stTextArea textarea {
-        background-color: #161b22 !important;
-        color: #c9d1d9 !important;
-        border: 1px solid #30363d !important;
-        border-radius: 8px;
-    }
-    .instruction-box {
-        background-color: #161b22;
-        padding: 15px;
-        border-radius: 8px;
-        border-left: 4px solid #ff4b4b;
-        margin-bottom: 25px;
-    }
-    .signature {
-        margin-top: 50px;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 13px;
-        color: #8b949e;
+        color: #ffffff !important;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 700;
+        letter-spacing: -1px;
+        font-size: 3rem !important;
         text-align: center;
-        border-top: 1px solid #21262d;
-        padding-top: 20px;
+        margin-bottom: 5px !important;
+    }
+    
+    .subtitle {
+        color: #94a3b8;
+        font-size: 1.25rem;
+        text-align: center;
+        margin-bottom: 40px;
+        font-family: -apple-system, sans-serif;
+    }
+    
+    /* Glassmorphism Instruction Card */
+    .premium-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        padding: 24px;
+        border-radius: 16px;
+        margin-bottom: 35px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    
+    .card-title {
+        color: #38bdf8;
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+    }
+    
+    /* Clean modern inputs */
+    .stTextArea textarea {
+        background-color: rgba(15, 23, 42, 0.6) !important;
+        color: #e2e8f0 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        padding: 15px !important;
+        backdrop-filter: blur(8px);
+        font-size: 15px;
+    }
+    
+    .stTextArea textarea:focus {
+        border-color: #38bdf8 !important;
+        box-shadow: 0 0 15px rgba(56, 189, 248, 0.2) !important;
+    }
+    
+    /* Neon glowing action button */
+    div.stButton > button:first-child {
+        background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%) !important;
+        color: white !important;
+        border: none !important;
+        padding: 12px 30px !important;
+        border-radius: 30px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.5px !important;
+        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4) !important;
+        transition: all 0.3s ease !important;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    div.stButton > button:first-child:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 25px rgba(56, 189, 248, 0.6) !important;
+    }
+    
+    /* Minimalist luxury footer */
+    .premium-footer {
+        margin-top: 80px;
+        font-size: 12px;
+        color: #64748b;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 25px;
+        letter-spacing: 0.5px;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# 2. App Header
-st.subheader("🤖 to cool human like text!!")
-st.title("the de-AI-fier :)")
-st.subheader("shattering boring robot text in real time.")
+# 3. Layout Render
+st.markdown("<div style='text-align: center;'><span class='top-pill'>✨ VERSION 1.0 // SHATTER THE ROBOT LAYER</span></div>", unsafe_allow_html=True)
 
-# 3. Cool Instructions Block (Fixed with unsafe_allow_html=True)
+st.title("The De-AI-ifier")
+st.markdown("<div class='subtitle'>Smarter. Faster. Actually sounds like a real person.</div>", unsafe_allow_html=True)
+
+# Unhinged Premium Copy
 st.markdown("""
-<div class="instruction-box">
-    <span style="color: #ff4b4b; font-weight: bold; font-family: monospace;">// HOW TO USE THIS THING:</span><br>
-    <ol style="color: #8b949e; margin-top: 8px; font-family: monospace; font-size: 14px;">
-        <li>Go copy whatever sterile, over-polished text some AI just spit out at you.</li>
-        <li>Paste that corporate nonsense into the box below.</li>
-        <li>Hit the burn button and watch it turn into real, expressive human text.</li>
-    </ol>
+<div class="premium-card">
+    <div class="card-title">// THE PROTOCOL</div>
+    <p style="color: #cbd5e1; font-size: 14px; line-height: 1.6; margin: 0;">
+        Look, we all know AI text sounds like a mid-level manager trying to hit a word count. It's sterile, it's boring, and it uses words like "testament" and "delve" way too much. Paste your robotic garbage below, hit the button, and we will inject actual human texture—slang, chaos, trailing thoughts, and real energy.
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
-# 4. User Input
-user_input = st.text_area("PASTE YOUR BORING ROBOT TEXT HERE:", placeholder="Artificial intelligence is transforming workflows...", height=150)
+# 4. User Input Field
+user_input = st.text_area("ENTER THE ROBOT COMPOSITION:", placeholder="Paste the text you want to cleanse of corporate rot...", height=150)
 
-# The System Prompt
+# System Prompt
 SYSTEM_PROMPT = """
 You are an advanced text 'De-AI-ifier' and linguistic translator. Your sole purpose is to strip out the polished, sterile, corporate structure of AI-generated text and rewrite it with the raw, chaotic, and expressive texture of a real human typing online or texting a friend.
 
@@ -81,10 +152,10 @@ STRICT LINGUISTIC RULES:
 6. THE "TRY-HARD" FILTER: Do not overuse outdated slang. Sound like an authentic, slightly chaotic human typing fast, not a brand trying to be hip. Maintain core meaning, but shatter the formal shell.
 """
 
-# 5. Execution Button
-if st.button("HUMANIZE IT ✨", type="primary"):
+# 5. Run it
+if st.button("Shatter the Corporate Shell ⚡"):
     if user_input:
-        with st.spinner("Shattering the shell..."):
+        with st.spinner("Purging corporate buzzwords..."):
             try:
                 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
                 
@@ -98,17 +169,16 @@ if st.button("HUMANIZE IT ✨", type="primary"):
                 
                 output_text = completion.choices[0].message.content
                 
-                # Fixed with unsafe_allow_html=True
-                st.markdown("<br><b style='color: #ff4b4b; font-family: monospace;'>BOOM. REAL HUMAN TEXT:</b>", unsafe_allow_html=True)
+                st.markdown("<br><div style='color: #38bdf8; font-weight: 600; font-size: 14px; letter-spacing: 1px;'>// HUMAN ENGINE OUTPUT:</div>", unsafe_allow_html=True)
                 st.write(output_text)
             except Exception as e:
                 st.error(f"Ah snap, something went wrong: {e}")
     else:
-        st.warning("Put some text in the box first, dude!")
+        st.warning("You gotta paste some corporate text first, chief.")
 
-# 6. Your Custom Signature (Fixed with unsafe_allow_html=True)
+# 6. Unhinged Luxury Footer Signature
 st.markdown("""
-<div class="signature">
-    made by a person fed up with boring ai responses, <span style="color: #ff4b4b;">pulkit chhabra</span>
+<div class="premium-footer">
+    MADE BY A HUMAN FED UP WITH BORING AI RESPONSES — <span style="color: #ffffff; font-weight: 600;">PULKIT CHHABRA</span>
 </div>
 """, unsafe_allow_html=True)
