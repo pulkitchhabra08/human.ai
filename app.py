@@ -49,7 +49,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 2. App Header
-st.title("🤖 to 😎")
+st.subheader("🤖 to cool human like text!!")
 st.title("the de-AI-fier :)")
 st.subheader("shattering boring robot text in real time.")
 
