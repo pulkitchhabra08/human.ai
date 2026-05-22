@@ -49,8 +49,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 2. App Header
-st.title("🤖 ➡️ 🧍 THE DE-AI-IFIER")
-st.subheader("shattering corporate robot text in real time.")
+st.title("🤖 to 😎")
+st.title("the de-AI-fier :)")
+st.subheader("shattering boring robot text in real time.")
 
 # 3. Cool Instructions Block (Fixed with unsafe_allow_html=True)
 st.markdown("""
