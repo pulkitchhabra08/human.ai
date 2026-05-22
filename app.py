@@ -4,11 +4,11 @@ from groq import Groq
 # 1. Custom Page Config & Injecting CSS Vibes
 st.set_page_config(
     page_title="The De-AI-ifier", 
-    page_icon="🧍", 
+    page_icon="😎", 
     layout="centered"
 )
 
-# Dark theme overrides and cool fonts
+# Dark theme overrides and cool fonts (Fixed markdown argument here)
 st.markdown("""
     <style>
     .main {
@@ -46,13 +46,13 @@ st.markdown("""
         padding-top: 20px;
     }
     </style>
-""", unsafe_html=True)
+""", allow_html=True)
 
 # 2. App Header
 st.title("🤖 ➡️ 🧍 THE DE-AI-IFIER")
 st.subheader("shattering corporate robot text in real time.")
 
-# 3. Cool Instructions Block
+# 3. Cool Instructions Block (Fixed markdown argument here)
 st.markdown("""
 <div class="instruction-box">
     <span style="color: #ff4b4b; font-weight: bold; font-family: monospace;">// HOW TO USE THIS THING:</span><br>
@@ -62,7 +62,7 @@ st.markdown("""
         <li>Hit the burn button and watch it turn into real, expressive human text.</li>
     </ol>
 </div>
-""", unsafe_html=True)
+""", allow_html=True)
 
 # 4. User Input
 user_input = st.text_area("PASTE YOUR BORING ROBOT TEXT HERE:", placeholder="Artificial intelligence is transforming workflows...", height=150)
@@ -87,7 +87,6 @@ if st.button("HUMANIZE IT ✨", type="primary"):
             try:
                 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
                 
-                # Using the fresh llama-3.1 model to avoid errors
                 completion = client.chat.completions.create(
                     model="llama-3.1-8b-instant", 
                     messages=[
@@ -98,16 +97,17 @@ if st.button("HUMANIZE IT ✨", type="primary"):
                 
                 output_text = completion.choices[0].message.content
                 
-                st.markdown("<br><b style='color: #ff4b4b; font-family: monospace;'>BOOM. REAL HUMAN TEXT:</b>", unsafe_html=True)
+                # Fixed markdown argument here too
+                st.markdown("<br><b style='color: #ff4b4b; font-family: monospace;'>BOOM. REAL HUMAN TEXT:</b>", allow_html=True)
                 st.write(output_text)
             except Exception as e:
                 st.error(f"Ah snap, something went wrong: {e}")
     else:
         st.warning("Put some text in the box first, dude!")
 
-# 6. Your Custom Signature
+# 6. Your Custom Signature (Fixed markdown argument here)
 st.markdown("""
 <div class="signature">
     made by a person fed up with boring ai responses, <span style="color: #ff4b4b;">pulkit chhabra</span>
 </div>
-""", unsafe_html=True)
+""", allow_html=True)
