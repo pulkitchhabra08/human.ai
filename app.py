@@ -4,7 +4,7 @@ from groq import Groq
 # 1. Page Config
 st.set_page_config(
     page_title="The De-AI-ifier", 
-    page_icon="🧍", 
+    page_icon="😎", 
     layout="centered"
 )
 
@@ -121,23 +121,23 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 3. Layout Render
-st.markdown("<div style='text-align: center;'><span class='top-pill'>✨ VERSION 1.0 // SHATTER THE ROBOT LAYER</span></div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center;'><span class='top-pill'>✨ VERSION 1.0 // NO MORE BORING TEXT</span></div>", unsafe_allow_html=True)
 
 st.title("The De-AI-ifier")
 st.markdown("<div class='subtitle'>Smarter. Faster. Actually sounds like a real person.</div>", unsafe_allow_html=True)
 
-# Unhinged Premium Copy
+# Casual Content Blurb
 st.markdown("""
 <div class="premium-card">
     <div class="card-title">// THE PROTOCOL</div>
     <p style="color: #cbd5e1; font-size: 14px; line-height: 1.6; margin: 0;">
-        Look, we all know AI text sounds like a mid-level manager trying to hit a word count. It's sterile, it's boring, and it uses words like "testament" and "delve" way too much. Paste your robotic garbage below, hit the button, and we will inject actual human texture—slang, chaos, trailing thoughts, and real energy.
+        Look, we all know AI text is just plain boring. It all sounds exactly the same. It uses the same tired structure, the same fake-polite tone, and words nobody actually says in real life. It has zero vibe. Paste whatever stale, robotic paragraph you got stuck with below, hit the button, and let's inject actual human texture into it—the slang, the chaotic pauses, the trailing thoughts, and the real energy.
     </p>
 </div>
 """, unsafe_allow_html=True)
 
 # 4. User Input Field
-user_input = st.text_area("ENTER THE ROBOT COMPOSITION:", placeholder="Paste the text you want to cleanse of corporate rot...", height=150)
+user_input = st.text_area("PASTE YOUR BORING ROBOT TEXT HERE:", placeholder="Paste the text you want to save from being completely boring...", height=150)
 
 # System Prompt
 SYSTEM_PROMPT = """
@@ -153,7 +153,7 @@ STRICT LINGUISTIC RULES:
 """
 
 # 5. Run it
-if st.button("Shatter the Corporate Shell ⚡"):
+if st.button("burn the boredom ⚡"):
     if user_input:
         with st.spinner("Purging corporate buzzwords..."):
             try:
@@ -179,6 +179,6 @@ if st.button("Shatter the Corporate Shell ⚡"):
 # 6. Unhinged Luxury Footer Signature
 st.markdown("""
 <div class="premium-footer">
-    MADE BY A HUMAN FED UP WITH BORING AI RESPONSES — <span style="color: #ffffff; font-weight: 600;">PULKIT CHHABRA</span>
+    MADE BY A HUMAN FED UP WITH BORING AI RESPONSES — <span style="color: #ffffff; font-weight: 600; href="https://www.linkedin.com/in/pulkitchhabra08/"">PULKIT CHHABRA</span>
 </div>
 """, unsafe_allow_html=True)
